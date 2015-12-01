@@ -16,6 +16,11 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+
+    tml: {
+      key: "YOUR KEY GOES HERE",
+      token: "YOUR TOKEN GOES HERE"
     }
   };
 
@@ -25,6 +30,15 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.contentSecurityPolicy = {
+      'default-src' : "'none'",
+      'script-src'  : "'self' 'unsafe-inline' 'unsafe-eval' *",
+      'font-src'    : "'self' data: use.typekit.net",
+      'connect-src' : "'self' *",
+      'img-src'     : "'self' *",
+      'style-src'   : "'self' 'unsafe-inline' use.typekit.net",
+      'frame-src'   : "*"
+    }
   }
 
   if (environment === 'test') {
