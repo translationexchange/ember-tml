@@ -18,10 +18,11 @@ module.exports = function(environment) {
       // when it is created
     },
 
-    tml: {
-      key: "YOUR KEY GOES HERE",
-      token: "YOUR TOKEN GOES HERE"
+    tml:{
+      key: "YOUR TREX KEY",
+      token: "YOUR TREX TOKEN",
     }
+
   };
 
   if (environment === 'development') {
