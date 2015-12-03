@@ -20,7 +20,7 @@ module.exports = function(environment) {
 
     tml:{
       key: "YOUR TREX KEY",
-      token: "YOUR TREX TOKEN",
+      token: "YOUR TREX TOKEN"
     }
 
   };
