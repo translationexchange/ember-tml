@@ -8,23 +8,28 @@ Translation Markup Language (TML) is a simple markup language that provides synt
 
 ##Installation
 
-The first thing you need to do to get started with Ember TML is sign up for a free Translation Exchange account and create your first project. 
-
-    ember install ember-tml
+````javascript
+ember install ember-tml
+````
 
 
 ##Configuration
 
-To setup, you should first configure the service through `config/environment`:
+The first thing you need to do to get started with Ember TML is sign up for a free [Translation Exchange](https://translationexchange.com/) account and create your first project. 
 
-    module.exports = function(environment) {
-      var ENV = {
-        tml: {
-          key: "YOUR_PROJECT_KEY",
-          token: "YOUR_PROJECT_TOKEN"
-        }
-      }
+Once you have created a project and have your project `key` and `token` you must configure the service:
+
+````javascript
+// config/environment.js
+module.exports = function(environment) {
+  var ENV = {
+    tml: {
+      key: "YOUR_PROJECT_KEY",
+      token: "YOUR_PROJECT_TOKEN"
     }
+  }
+}
+````
 
 
 ##Content Security Policy
@@ -33,16 +38,19 @@ If you're using the content security policy, you'll need to add the translatione
 
 In `config/environment.js`, add this to the ENV hash (modify as necessary):
 
-    contentSecurityPolicy: {
-      'default-src': "'none'",
-      'script-src': "'self' *.translationexchange.com",
-      'font-src': "'self'",
-      'connect-src': "'self' *.translationexchange.com",
-      'frame-src': "'self' *.translationexchange.com",
-      'img-src': "'self' *",
-      'style-src': "'self' *",
-      'media-src': "'self' *"
-    }
+````javascript
+// config/environment.js
+contentSecurityPolicy: {
+  'default-src': "'none'",
+  'script-src': "'self' *.translationexchange.com",
+  'font-src': "'self'",
+  'connect-src': "'self' *.translationexchange.com",
+  'frame-src': "'self' *.translationexchange.com",
+  'img-src': "'self' *",
+  'style-src': "'self' *",
+  'media-src': "'self' *"
+}
+````
 
 
 ##Usage
