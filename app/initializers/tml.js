@@ -1,6 +1,6 @@
 import config from '../config/environment';
 
-export function initialize(registry, application) {
+export function initialize(application) {
   
   if(window.tml && config.tml) {
     application.deferReadiness();

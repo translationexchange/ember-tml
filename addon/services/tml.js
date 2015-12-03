@@ -44,7 +44,9 @@ export default Ember.Service.extend({
   }, 
 
   toggleTranslationMode() {
-    if(window.Trex){window.Trex.toggleTranslationMode();}
+    if(window.Trex){
+      window.Trex.toggleTranslationMode();
+    }
   }
 
 });
