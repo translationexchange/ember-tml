@@ -1,25 +1,50 @@
-# Ember-tml
 
-This README outlines the details of collaborating on this Ember addon.
+#Ember TML
 
-## Installation
+This addon adds helpers for doing advanced localization of your ember apps with Translation Markup Language (TML) by Translation Exchange.
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+Translation Markup Language (TML) is a simple markup language that provides syntax for identifying dynamic data and decorations within strings. TML aims at abstracting out the decoration mechanisms of the string and instead provides its own simple, but powerful syntax. This allows for translation sharing across multiple applications and platforms.
 
-## Running
 
-* `ember server`
-* Visit your app at http://localhost:4200.
+##Installation
 
-## Running Tests
+The first thing you need to do to get started with Ember TML is sign up for a free Translation Exchange account and create your first project. 
 
-* `ember test`
-* `ember test --server`
+    ember install ember-tml
 
-## Building
 
-* `ember build`
+##Configuration
 
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+To setup, you should first configure the service through `config/environment`:
+
+    module.exports = function(environment) {
+      var ENV = {
+        tml: {
+          key: "YOUR_PROJECT_KEY",
+          token: "YOUR_PROJECT_TOKEN"
+        }
+      }
+    }
+
+
+##Content Security Policy
+
+If you're using the content security policy, you'll need to add the translationexchange domain to allow loading of remote scripts. 
+
+In `config/environment.js`, add this to the ENV hash (modify as necessary):
+
+    contentSecurityPolicy: {
+      'default-src': "'none'",
+      'script-src': "'self' *.translationexchange.com",
+      'font-src': "'self'",
+      'connect-src': "'self' *.translationexchange.com",
+      'frame-src': "'self' *.translationexchange.com",
+      'img-src': "'self' *",
+      'style-src': "'self' *",
+      'media-src': "'self' *"
+    }
+
+
+##Usage
+
+
