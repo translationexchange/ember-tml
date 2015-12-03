@@ -55,4 +55,31 @@ contentSecurityPolicy: {
 
 ##Usage
 
+The Ember TML Addon provides a few helpers and a service:
+
+####TML Helpers
+
+`tr`
+
+````handlebars
+<div>{{tr "Hello World" }}</div>
+<div>{{tr "You have {count || message}" count=5}}</div>
+
+````
+
+`trl`
+
+````handlebars
+<img src="..." title={{trl "Hello World"}} />
+{{input placeholder=(trl "Enter email address")}}
+````
+
+####TML Service Api
+
+The TML service will be injected into `Controllers`, `Routes`, `Views` and `Components`
+
+````javascript
+Ember.get(this, 'tml').translate("Hello World");
+````
+
 
