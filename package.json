@@ -1,6 +1,6 @@
 {
   "name": "ember-tml",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "Ember addon for advanvced localization using TML(Translation Markup Language) from TranslationExchange.",
   "directories": {
     "doc": "doc",
