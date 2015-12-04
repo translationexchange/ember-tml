@@ -18,9 +18,9 @@ module.exports = function(environment) {
       // when it is created
     },
 
-    tml:{
-      key: "YOUR TREX KEY",
-      token: "YOUR TREX TOKEN"
+    tml: {
+      key: "YOU_APPLICATION_KEY",
+      token: "YOU_APPLICATION_TOKEN"
     }
 
   };
@@ -31,6 +31,18 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+
+    // ENV.contentSecurityPolicy = {
+    //   'default-src': "'none'",
+    //   'script-src': "'self' *.translationexchange.com ",
+    //   'font-src': "'self'",
+    //   'connect-src': "'self' *.translationexchange.com",
+    //   'frame-src': "'self' *.translationexchange.com",
+    //   'img-src': "'self' *",
+    //   'style-src': "'self' *",
+    //   'media-src': "'self' *"
+    // }
+
     ENV.contentSecurityPolicy = {
       'default-src' : "'none'",
       'script-src'  : "'self' 'unsafe-inline' 'unsafe-eval' *",

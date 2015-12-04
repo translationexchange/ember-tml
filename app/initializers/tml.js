@@ -1,12 +1,17 @@
 import config from '../config/environment';
 
-export function initialize(application) {
-  
+export function initialize() {
+  let application = arguments[1] || arguments[0];
+
   if(window.tml && config.tml) {
     application.deferReadiness();
-    window.tml.init(config.tml, function(){
+    try {
+      window.tml.init(config.tml, function(){
+        application.advanceReadiness();
+      });      
+    } catch(e) {
       application.advanceReadiness();
-    });
+    }
   }
 
   application.inject('component'  , 'tml', 'service:tml');
