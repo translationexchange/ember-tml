@@ -1,5 +1,5 @@
 module.exports = {
-  description: ''
+  description: '',
 
   afterInstall: function() {
     return this.addBowerPackageToProject('tml-js'); 
