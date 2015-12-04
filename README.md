@@ -70,19 +70,20 @@ This is what it should look like in your templates:
 ````handlebars
 
 <div>{{tr "Hello World" }}</div>
-{{!-- Hello World --}}
-
 <div>{{tr "Invite" "Link to invite your friends"}}</div>
-{{!-- Invite --}}
-
 <div>{{tr "Welcome {user}!" user=userName}}</div>
-{{!-- Welcome Jane! --}}
-
 <div>{{tr "You have {count || message}" count=1}}</div>
-{{!-- You have 1 message --}}
-
 <div>{{tr "You have {count || message}" count=5}}</div>
-{{!-- You have 5 messages --}}
+````
+
+yields:
+
+````handlebars
+<div>Hello World</div>
+<div>Invite</div>
+<div>Welcome Jane!</div>
+<div>You have 1 message</div>
+<div>You have 5 messages</div>
 ````
 
 #### {{trl}} Helper
