@@ -18,20 +18,9 @@ module.exports = function(environment) {
       // when it is created
     },
 
-    // tml: {
-    //   key: "YOU_APPLICATION_KEY",
-    //   token: "YOU_APPLICATION_TOKEN"
-    // },
-
     tml: {
-      key:    "f602f41197ab96222b20446d3dd723a7bf01bfa5320a433e8c393ea8490fcb4a",
-      token:  "eea5213fdfd14f797eb09994b0165ffb6ab98a4b8f34e52c1b8c7dd20a006728",
-      host:   "http://localhost:3000",
-      agent: {
-        enabled:  true,
-        type: "agent",
-        host: 'http://localhost:8282/dist/agent.js'
-      }
+      key: "YOU_APPLICATION_KEY",
+      token: "YOU_APPLICATION_TOKEN"
     }
 
   };
