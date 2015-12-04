@@ -116,12 +116,35 @@ and includes some handy methods for working with TML:
 
 - **`currentTranslator`**  
   an object representing the current logged in translator
+  ````javascript
+Ember.get(this, 'tml.currentTranslator');
+// {
+//   name: "translator_username",
+//   inline: true
+// }
+````
 
 - **`currentSource`**  
-  the current source
+  a string of the current source
+  ````javascript
+Ember.get(this, 'tml.currentSource');
+// "index"
+````
 
 - **`currentApplication`**  
   return an object representing your Translation Exchange application
+  ````javascript
+Ember.get(this, 'tml.currentApplication');
+// {
+//   id: 123,
+//   key: "APP_KEY",
+//   name: "Dom Examples",
+//   current_locale: "zh",
+//   default_locale: "en-US",
+//   features: {...},
+//   languages: [...]
+// }
+````
 
 - **`currentLanguage`**  
   returns the currently selected language
