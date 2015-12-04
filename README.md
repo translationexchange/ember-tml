@@ -129,8 +129,8 @@ and includes some handy methods for working with TML:
   `tr(label [,description, tokens])`  
   works the same as the `tr` helper
 
-- `translateLabel(label [,description, tokens])`  
-  `trl(label [,description, tokens])`  
+- **`translateLabel(label [,description, tokens])`**  
+  **`trl(label [,description, tokens])`**  
   works the same as the `trl` helper
 
 - `changeLanguage(locale)`  
