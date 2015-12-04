@@ -107,41 +107,33 @@ Ember.get(this, 'tml').trl("Hello World");
 ````
 and includes some handy methods for working with TML:
 
-- `currentTranslator`
-
+- `currentTranslator`  
   an object representing the current logged in translator
 
-- `currentSource`
+- `currentSource`  
   the current source
 
-- `currentApplication`
-
+- `currentApplication`  
   return an object representing your Translation Exchange application
 
-- `currentLanguage`
-
+- `currentLanguage`  
   returns the currently selected language
 
-- `availableLanguages`
-
+- `availableLanguages`  
   returns a list of all available languages for your project
 
-- `translationModeEnabled`
-
+- `translationModeEnabled`  
   returns whether or not the application is currently in translation mode
 
-- `translate(label [,description, tokens])`
-- `tr(label [,description, tokens])`
-
+- `translate(label [,description, tokens])`  
+  `tr(label [,description, tokens])`  
   works the same as the `tr` helper
 
-- `translateLabel(label [,description, tokens])`
-- `trl(label [,description, tokens])`
-
+- `translateLabel(label [,description, tokens])`  
+  `trl(label [,description, tokens])`  
   works the same as the `trl` helper
 
-- `changeLanguage(locale)`
-
+- `changeLanguage(locale)`  
   sets the current language
 
 
