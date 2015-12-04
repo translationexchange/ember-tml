@@ -3,7 +3,12 @@ import config from '../config/environment';
 export function initialize() {
   let application = arguments[1] || arguments[0];
 
-  if(window.tml && config.tml) {
+  if(
+    window.tml && 
+    config.tml && 
+    config.tml.key && 
+    config.tml.token
+  ) {
     application.deferReadiness();
     try {
       window.tml.init(config.tml, function(){
