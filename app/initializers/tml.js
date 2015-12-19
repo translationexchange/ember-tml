@@ -15,6 +15,7 @@ export function initialize() {
         application.advanceReadiness();
       });      
     } catch(e) {
+      console.log(e);
       application.advanceReadiness();
     }
   }
