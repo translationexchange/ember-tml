@@ -6,8 +6,7 @@ export function initialize() {
   if(
     window.tml && 
     config.tml && 
-    config.tml.key && 
-    config.tml.token
+    config.tml.key
   ) {
     application.deferReadiness();
     try {
