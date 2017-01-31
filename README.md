@@ -24,8 +24,7 @@ Once you have created a project and have your project `key` and `token` you must
 module.exports = function(environment) {
   var ENV = {
     tml: {
-      key: "YOUR_PROJECT_KEY",
-      token: "YOUR_PROJECT_TOKEN"
+      key: "YOUR_PROJECT_KEY"
     }
   }
 }
