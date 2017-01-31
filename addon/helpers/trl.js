@@ -4,6 +4,8 @@ export function trl(params, hash) {
   var label = params[0];
   var description = params[1] || "";
 
+  if(!label) return;
+  
   if( 
       window.tml && 
       window.tml.getApplication &&
