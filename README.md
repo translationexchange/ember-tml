@@ -1,19 +1,19 @@
 
-#Ember TML
+# Ember TML
 
 This addon adds helpers for doing advanced localization of your ember apps with Translation Markup Language (TML) by Translation Exchange.
 
 Translation Markup Language (TML) is a simple markup language that provides syntax for identifying dynamic data and decorations within strings. TML aims at abstracting out the decoration mechanisms of the string and instead provides its own simple, but powerful syntax. This allows for translation sharing across multiple applications and platforms.
 
 
-##Installation
+## Installation
 
 ````javascript
 ember install ember-tml
 ````
 
 
-##Configuration
+## Configuration
 
 The first thing you need to do to get started with Ember TML is sign up for a free [Translation Exchange](https://translationexchange.com/) account and create your first project. 
 
@@ -31,7 +31,7 @@ module.exports = function(environment) {
 ````
 
 
-##Content Security Policy
+## Content Security Policy
 
 If you're using the content security policy, you'll need to add the translationexchange domain to allow loading of remote scripts. 
 
@@ -52,7 +52,7 @@ contentSecurityPolicy: {
 ````
 
 
-##Usage
+## Usage
 
 The Ember TML Addon provides a few helpers and a service:
 
@@ -102,9 +102,10 @@ yields:
 
 You can find more on how to use TML in the docs at [Translation Exchange](https://translationexchange.com/docs/tml/basics)
 
-###API
 
-####TML Service Api
+### API
+
+#### TML Service Api
 
 The TML service will be injected into `Controllers`, `Routes`, `Views` and `Components`.
 
@@ -113,9 +114,9 @@ Ember.get(this, 'tml').trl("Hello World");
 ````
 and includes some handy methods for working with TML:
 
-- **`currentTranslator`**  
-  an object representing the current logged in translator
-  ````javascript
+**`currentTranslator`**  
+an object representing the current logged in translator
+````javascript
 Ember.get(this, 'tml.currentTranslator');
 // {
 //   name: "translator_username",
@@ -123,16 +124,16 @@ Ember.get(this, 'tml.currentTranslator');
 // }
 ````
 
-- **`currentSource`**  
-  a string of the current source
-  ````javascript
+**`currentSource`**  
+a string of the current source
+````javascript
 Ember.get(this, 'tml.currentSource');
 // "index"
 ````
 
-- **`currentApplication`**  
-  return an object representing your Translation Exchange application
-  ````javascript
+**`currentApplication`**  
+return an object representing your Translation Exchange application
+````javascript
 Ember.get(this, 'tml.currentApplication');
 // {
 //   id: 123,
@@ -145,25 +146,51 @@ Ember.get(this, 'tml.currentApplication');
 // }
 ````
 
-- **`currentLanguage`**  
-  returns the currently selected language
+**`currentLanguage`**  
+returns the currently selected language
+````javascript
+Ember.get(this, 'tml.currentLanguage');
+// {
+//   id: 233,
+//   english_name: "Russian",
+//   native_name: "Русский",
+//   locale: "ru",
+//   right_to_left: false,
+//   flag_url: "https://s3-us-west-1.amazonaws.com/trex-snapshots/flags/default/languages/16/ru.png"
+// }
+````
+**`availableLanguages`**  
+returns a list of all available languages for your project
 
-- **`availableLanguages`**  
-  returns a list of all available languages for your project
+**`translationModeEnabled`**  
+returns whether or not the application is currently in translation mode
 
-- **`translationModeEnabled`**  
-  returns whether or not the application is currently in translation mode
+**`translate(label [,description, tokens])`**  
+**`tr(label [,description, tokens])`**  
+works the same as the `tr` helper
 
-- **`translate(label [,description, tokens])`**  
-  **`tr(label [,description, tokens])`**  
-  works the same as the `tr` helper
+**`translateLabel(label [,description, tokens])`**  
+**`trl(label [,description, tokens])`**  
+works the same as the `trl` helper
 
-- **`translateLabel(label [,description, tokens])`**  
-  **`trl(label [,description, tokens])`**  
-  works the same as the `trl` helper
+**`changeLanguage(locale)`**  
+sets the current language
 
-- **`changeLanguage(locale)`**  
-  sets the current language
+
+### Building a Language Selector
+````handlebars
+<ul>
+  {{#each tml.availableLanguages as |language|}}
+    <li>
+      <a {{action (action tml.changeLanguage) language.locale}}>
+        <img src={{language.flag_url}} />
+        {{tr language.english_name}}
+      </a>
+    </li>
+  {{/each}}
+</ul>
+````
+
 
 
 
