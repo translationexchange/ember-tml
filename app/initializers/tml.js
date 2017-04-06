@@ -1,5 +1,7 @@
 import config from '../config/environment';
 
+const {merge} = Ember;
+
 export function initialize() {
   let application = arguments[1] || arguments[0];
 
@@ -10,7 +12,10 @@ export function initialize() {
   ) {
     application.deferReadiness();
     try {
-      window.tml.init(config.tml, function(){
+
+      let opts = merge({source: (config.modulePrefix || 'Ember Application')}, config.tml);
+      
+      window.tml.init(opts, function(){
         application.advanceReadiness();
       });      
     } catch(e) {
