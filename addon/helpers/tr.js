@@ -1,5 +1,7 @@
 import Ember from 'ember';
 
+const SafeString = Ember.String.htmlSafe || Ember.Handlebars.SafeString;
+
 export function tr(params, hash) {
   var label = params[0];
   var description = params[1] || "";
@@ -12,7 +14,7 @@ export function tr(params, hash) {
       window.tml.getApplication() &&
       window.tr
     ) {
-    return new Ember.Handlebars.SafeString(window.tr(label, description, hash));  
+    return new SafeString(window.tr(label, description, hash));  
   } else {
     return label;
   }
