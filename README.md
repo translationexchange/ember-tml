@@ -67,12 +67,11 @@ The Ember TML Addon provides a few helpers and a service:
 This is what it should look like in your templates:
 
 ````handlebars
-
 <div>{{tr "Hello World" }}</div>
 <div>{{tr "Invite" "Link to invite your friends"}}</div>
 <div>{{tr "Welcome {user}!" user=userName}}</div>
-<div>{{tr "You have {count || message}" count=1}}</div>
-<div>{{tr "You have {count || message}" count=5}}</div>
+<div>{{tr "You have {count || message, messages}" count=1}}</div>
+<div>{{tr "You have {count || message, messages}" count=5}}</div>
 ````
 
 yields:
