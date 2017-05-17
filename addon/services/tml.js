@@ -5,25 +5,25 @@ export default Ember.Service.extend({
 
   currentApplication: computed(function(){
     return window.tml.getApplication();
-  }),
+  }).readOnly(),
 
   currentSource: computed(function(){
     return window.tml.getCurrentSource();
-  }),
+  }).readOnly(),
 
   currentTranslator: computed(function(){
     return window.tml.getCurrentTranslator();
-  }),
+  }).readOnly(),
 
   currentLanguage: computed(function(){
     return window.tml.getCurrentLanguage();
-  }),
+  }).readOnly(),
 
-  availableLanguages: computed.alias('currentApplication.languages'),
+  availableLanguages: computed.readOnly('currentApplication.languages'),
 
   translationModeEnabled: computed(function(){
     return this.get('currentApplication').isInlineModeEnabled();
-  }),
+  }).readOnly(),
 
   translate() {
     return window.tml.translate.apply(this, arguments);
