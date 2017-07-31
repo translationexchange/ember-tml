@@ -1,28 +1,27 @@
-/* jshint node: true */
+/* eslint-env node */
+'use strict';
 
 module.exports = function(environment) {
-  var ENV = {
+  let ENV = {
     modulePrefix: 'dummy',
-    environment: environment,
-    baseURL: '/',
+    environment,
+    rootURL: '/',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
         // e.g. 'with-controller': true
+      },
+      EXTEND_PROTOTYPES: {
+        // Prevent Ember Data from overriding Date.parse.
+        Date: false
       }
     },
 
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    },
-
-    tml: {
-      key: "YOU_APPLICATION_KEY",
-      token: "YOU_APPLICATION_TOKEN"
     }
-
   };
 
   if (environment === 'development') {
@@ -31,32 +30,10 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-
-    // ENV.contentSecurityPolicy = {
-    //   'default-src': "'none'",
-    //   'script-src': "'self' *.translationexchange.com ",
-    //   'font-src': "'self'",
-    //   'connect-src': "'self' *.translationexchange.com",
-    //   'frame-src': "'self' *.translationexchange.com",
-    //   'img-src': "'self' *",
-    //   'style-src': "'self' *",
-    //   'media-src': "'self' *"
-    // }
-
-    ENV.contentSecurityPolicy = {
-      'default-src' : "'none'",
-      'script-src'  : "'self' 'unsafe-inline' 'unsafe-eval' *",
-      'font-src'    : "'self' data: use.typekit.net",
-      'connect-src' : "'self' *",
-      'img-src'     : "'self' *",
-      'style-src'   : "'self' 'unsafe-inline' use.typekit.net",
-      'frame-src'   : "*"
-    }
   }
 
   if (environment === 'test') {
     // Testem prefers this...
-    ENV.baseURL = '/';
     ENV.locationType = 'none';
 
     // keep test console output quieter

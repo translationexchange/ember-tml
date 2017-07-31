@@ -19,11 +19,11 @@ export default Ember.Service.extend({
     return window.tml.getCurrentLanguage();
   }).readOnly(),
 
-  availableLanguages: computed.readOnly('currentApplication.languages'),
-
   translationModeEnabled: computed(function(){
     return this.get('currentApplication').isInlineModeEnabled();
   }).readOnly(),
+
+  availableLanguages: computed.readOnly('currentApplication.languages'),
 
   translate() {
     return window.tml.translate.apply(this, arguments);

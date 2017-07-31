@@ -2,22 +2,21 @@ import Ember from 'ember';
 
 const SafeString = Ember.String.htmlSafe || Ember.Handlebars.SafeString;
 
-export function trl(params, hash) {
-  var label = params[0];
-  var description = params[1] || "";
+export function trl(params, hash={}) {
+  let label       = params[0];
+  let description = params[1] || "";
+  let opts        = hash.options || {}
+
+  delete hash.options;
 
   if(!label) return;
   
-  if( 
-      window.tml && 
-      window.tml.getApplication &&
-      window.tml.getApplication() &&
-      window.trl
-    ) {
-    return new SafeString(window.trl(label, description, hash));
+  if( window.tml && window.tml.translateLabel ) {
+    return new SafeString(window.tml.translateLabel(label, description, hash, opts));  
   } else {
     return label;
   }
 }
+
 
 export default Ember.Helper.helper(trl);

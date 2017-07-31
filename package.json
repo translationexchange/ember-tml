@@ -1,60 +1,47 @@
 {
   "name": "ember-tml",
-  "version": "0.2.6",
-  "description": "Ember addon for advanvced localization using TML(Translation Markup Language) from Translation Exchange.",
+  "version": "0.0.0",
+  "description": "The default blueprint for ember-cli addons.",
+  "keywords": [
+    "ember-addon"
+  ],
+  "license": "MIT",
+  "author": "",
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
+  "repository": "",
   "scripts": {
     "build": "ember build",
     "start": "ember server",
-    "test": "ember try:testall"
+    "test": "ember try:each"
   },
-  "repository": "https://github.com/translationexchange/ember-tml",
-  "engines": {
-    "node": ">= 0.10.0"
-  },
-  "author": {
-    "name": "Ian McDaniel",
-    "email": "ian@translationexchange.com"
-  },
-  "license": "MIT",
-  "devDependencies": {
-    "broccoli-asset-rev": "^2.1.2",
-    "ember-cli": "1.13.8",
-    "ember-cli-app-version": "0.5.0",
-    "ember-cli-content-security-policy": "0.4.0",
-    "ember-cli-dependency-checker": "^1.0.1",
-    "ember-cli-htmlbars": "0.7.9",
-    "ember-cli-htmlbars-inline-precompile": "^0.2.0",
-    "ember-cli-ic-ajax": "0.2.1",
-    "ember-cli-inject-live-reload": "^1.3.1",
-    "ember-cli-qunit": "^1.0.0",
-    "ember-cli-release": "0.2.3",
-    "ember-cli-sri": "^1.0.3",
-    "ember-cli-uglify": "^1.2.0",
-    "ember-disable-proxy-controllers": "^1.0.0",
-    "ember-export-application-global": "^1.0.3",
-    "ember-disable-prototype-extensions": "^1.0.0",
-    "ember-try": "0.0.6"
-  },
-  "keywords": [
-    "localization",
-    "translation",
-    "tml",
-    "internationalization",
-    "translate",
-    "localize",
-    "i18n",
-    "t9n",
-    "tr8n",
-    "l10n",
-    "ember-addon"
-  ],
   "dependencies": {
-    "ember-cli-babel": "^5.1.3",
-    "ember-cli-htmlbars": "^1.0.1"
+    "ember-cli-babel": "^6.3.0"
+  },
+  "devDependencies": {
+    "broccoli-asset-rev": "^2.4.5",
+    "ember-ajax": "^3.0.0",
+    "ember-cli": "~2.14.1",
+    "ember-cli-dependency-checker": "^1.3.0",
+    "ember-cli-eslint": "^3.0.0",
+    "ember-cli-htmlbars": "^2.0.1",
+    "ember-cli-htmlbars-inline-precompile": "^0.4.3",
+    "ember-cli-inject-live-reload": "^1.4.1",
+    "ember-cli-qunit": "^4.0.0",
+    "ember-cli-shims": "^1.1.0",
+    "ember-cli-sri": "^2.1.0",
+    "ember-cli-uglify": "^1.2.0",
+    "ember-disable-prototype-extensions": "^1.1.2",
+    "ember-export-application-global": "^2.0.0",
+    "ember-load-initializers": "^1.0.0",
+    "ember-resolver": "^4.0.0",
+    "ember-source": "~2.14.1",
+    "loader.js": "^4.2.3"
+  },
+  "engines": {
+    "node": "^4.5 || 6.* || >= 7.*"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
