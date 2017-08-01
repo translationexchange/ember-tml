@@ -1,5 +1,5 @@
 import Ember from 'ember';
-const { computed } = Ember;
+const { computed, RSVP } = Ember;
 
 export default Ember.Service.extend({
 
@@ -35,6 +35,15 @@ export default Ember.Service.extend({
     
   tr()  {return this.translate.apply(this, arguments);},
   trl() {return this.translateLabel.apply(this, arguments);},
+
+  setSource(name) {
+    return new RSVP.Promise((res, rej) => {
+      if(window.tml.setSource) {
+        window.tml.setSource(name, res); 
+      } 
+      else { rej(); }
+    })
+  },
 
   changeLanguage(locale) {
     window.tml.getApplication().changeLanguage(locale, function(){
