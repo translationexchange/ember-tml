@@ -41,7 +41,7 @@ export default Ember.Service.extend({
       if(window.tml.setSource) {
         window.tml.setSource(name, res); 
       } 
-      else { rej(); }
+      else { res(); }
     })
   },
 
