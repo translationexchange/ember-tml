@@ -30,28 +30,6 @@ module.exports = function(environment) {
 }
 ````
 
-
-## Content Security Policy
-
-If you're using the content security policy, you'll need to add the translationexchange domain to allow loading of remote scripts. 
-
-In `config/environment.js`, add this to the ENV hash (modify as necessary):
-
-````javascript
-// config/environment.js
-contentSecurityPolicy: {
-  'default-src': "'none'",
-  'script-src': "'self' *.translationexchange.com",
-  'font-src': "'self'",
-  'connect-src': "'self' *.translationexchange.com",
-  'frame-src': "'self' *.translationexchange.com",
-  'img-src': "'self' *",
-  'style-src': "'self' *",
-  'media-src': "'self' *"
-}
-````
-
-
 ## Usage
 
 The Ember TML Addon provides a few helpers and a service:
