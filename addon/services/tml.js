@@ -37,7 +37,7 @@ export default Ember.Service.extend({
   trl() {return this.translateLabel.apply(this, arguments);},
 
   setSource(name) {
-    return new RSVP.Promise((res, rej) => {
+    return new RSVP.Promise((res) => {
       if(window.tml.setSource) {
         window.tml.setSource(name, res); 
       } 
