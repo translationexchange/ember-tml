@@ -1,5 +1,12 @@
 
-# Ember TML
+<p align="center">
+  <img src="https://avatars0.githubusercontent.com/u/1316274?v=3&s=200">
+</p>
+
+Ember TML
+===
+
+[![Build Status](https://travis-ci.org/translationexchange/ember-tml.svg?branch=master)](https://travis-ci.org/translationexchange/ember-tml)
 
 This addon adds helpers for doing advanced localization of your ember apps with Translation Markup Language (TML) by Translation Exchange.
 
