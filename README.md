@@ -8,6 +8,8 @@ Ember TML
 
 [![Build Status](https://travis-ci.org/translationexchange/ember-tml.svg?branch=master)](https://travis-ci.org/translationexchange/ember-tml)
 
+[![NPM](https://nodei.co/npm/ember-tml.png?downloads=true)](https://nodei.co/npm/ember-tml)
+
 This addon adds helpers for doing advanced localization of your ember apps with Translation Markup Language (TML) by Translation Exchange.
 
 Translation Markup Language (TML) is a simple markup language that provides syntax for identifying dynamic data and decorations within strings. TML aims at abstracting out the decoration mechanisms of the string and instead provides its own simple, but powerful syntax. This allows for translation sharing across multiple applications and platforms.
@@ -174,3 +176,39 @@ sets the current language
   {{/each}}
 </ul>
 ````
+
+Links
+==================
+
+* Register on TranslationExchange.com: http://translationexchange.com
+
+* Follow TranslationExchange on Twitter: https://twitter.com/translationx
+
+* Connect with TranslationExchange on Facebook: https://www.facebook.com/translationexchange
+
+* If you have any questions or suggestions, contact us: support@translationexchange.com
+
+
+Copyright and license
+==================
+
+Copyright (c) 2017 Translation Exchange, Inc.
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
