@@ -60,10 +60,10 @@ export default Ember.Service.extend({
     let opts = merge({
       current_locale      : locale,
       current_source      : config.source || DEFAULT_SOURCE,     
-      current_translator  : translator || null,  
-      cache               : server.cache
+      current_translator  : translator || null
     }, server);
 
+    tml.config.cache = server.cache;
     tml.config.initCache(config.key);
 
     app.init(opts, () => {
