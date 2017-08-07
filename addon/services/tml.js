@@ -107,7 +107,6 @@ export default Ember.Service.extend({
     let language = this.get('currentLanguage');
     return language ? 
       language.translate(label, description, tokens, merge({
-        current_locale      : 'ru',
         current_translator  : this.get('currentTranslator')
       }, options)) : 
       label;
@@ -147,7 +146,7 @@ export default Ember.Service.extend({
   },
 
   changeLanguage(locale) {
-    this.get('app').changeLanguage(locale, function(){
+    this.get('tml.app').changeLanguage(locale, () => {
       this.get('tml').changeLanguage(locale); 
       window.location.reload();
     });
