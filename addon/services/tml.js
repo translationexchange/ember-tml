@@ -115,8 +115,9 @@ export default Ember.Service.extend({
   translateLabel(label, description, tokens, options={}) {
     let language = this.get('currentLanguage');
     return language ? 
-      language.translateLabel(label, description, tokens, merge({
-        current_translator  : this.get('currentTranslator')
+      language.translate(label, description, tokens, merge({
+        current_translator  : this.get('currentTranslator'),
+        skip_decorations    : true
       }, options)) : 
       label;
   },
