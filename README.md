@@ -39,6 +39,14 @@ module.exports = function(environment) {
 }
 ````
 
+And make sure you add the tml-js bower package to your `ember-cli-build` file.
+
+````javascript
+// ember-cli-build.js
+app.import(app.bowerDirectory + '/tml-js/dist/tml.min.js');
+````
+
+
 ## Usage
 
 ### Initializing the SDK
@@ -193,38 +201,59 @@ sets the current language
 </ul>
 ````
 
-Links
-==================
+## Using with FastBoot
 
+In order to use ember-tml with FastBoot you will need to install the `tml-server` package
+
+### Installation
+
+````javascript
+npm install tml-server --save
+````
+
+and add it to your fastbootDepencies in your `package.json` file
+````javascript
+// package.json
+...
+"dependencies": {
+  "tml-server": "^1.0.6"
+},
+"fastbootDependencies": [
+  "tml-server"
+]
+````
+
+### Configuration
+
+Server specific configuration can be passed in the `server` parameter of your `tml` config in `environments.js`.
+TML on the server works by retrieving translations from a cache. To setup your tml cache add a cache adapter to the config:
+
+````javascript
+// config/environment.js
+module.exports = function(environment) {
+  var ENV = {
+    tml: {
+      key: "YOUR_PROJECT_KEY",
+      server: {
+        cache: {
+          adapter : "file",
+          version : '20170807203433',
+          path    : './public/translations'    
+        }        
+      }
+    }
+  }
+}
+````
+
+In this example TML will retrieve translations from the folder `public/translations/20170807203433`. You can download translation files from the Releases section of your project in the Translation Exchange Dashboard.
+
+Other cache options include Memcache and Redis. Read more in the [tml-server documentation](http://docs.translationexchange.com/express-caching/)
+
+
+## Links
 * Register on TranslationExchange.com: http://translationexchange.com
-
 * Follow TranslationExchange on Twitter: https://twitter.com/translationx
-
 * Connect with TranslationExchange on Facebook: https://www.facebook.com/translationexchange
-
 * If you have any questions or suggestions, contact us: support@translationexchange.com
 
-
-Copyright and license
-==================
-
-Copyright (c) 2017 Translation Exchange, Inc.
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
