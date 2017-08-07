@@ -3,7 +3,6 @@ import { moduleFor, test } from 'ember-qunit';
 let didInit = false;
 let appLanguage = '';
 let trData;
-let trlData;
 let trMode = false;
 
 moduleFor('service:tml', 'Unit | Service | tml', {
@@ -24,9 +23,6 @@ moduleFor('service:tml', 'Unit | Service | tml', {
             id: 'language1',
             translate(label, description, params, options) {
               trData = {label, description, params, options}
-            },
-            translateLabel(label, description, params, options) {
-              trlData = {label,description,params,options}
             }
           } 
         },
@@ -120,17 +116,19 @@ test('it does tml translateLabel', function(assert) {
   let service = this.subject();
   service.translateLabel('label1', 'description1', {param: 1}, {option: 1});
 
-  assert.equal(trlData.label, 'label1');
-  assert.equal(trlData.description, 'description1');
-  assert.equal(trlData.params.param, 1);
-  assert.equal(trlData.options.option, 1);
+  assert.equal(trData.label, 'label1');
+  assert.equal(trData.description, 'description1');
+  assert.equal(trData.params.param, 1);
+  assert.equal(trData.options.option, 1);
+  assert.equal(trData.options.skip_decorations, true);
 
   service.trl('label2', 'description2', {param: 2}, {option: 2});
 
-  assert.equal(trlData.label, 'label2');
-  assert.equal(trlData.description, 'description2');
-  assert.equal(trlData.params.param, 2);
-  assert.equal(trlData.options.option, 2);
+  assert.equal(trData.label, 'label2');
+  assert.equal(trData.description, 'description2');
+  assert.equal(trData.params.param, 2);
+  assert.equal(trData.options.option, 2);
+  assert.equal(trData.options.skip_decorations, true);
 });
 
 test('it toggles translation mode', function(assert) {
