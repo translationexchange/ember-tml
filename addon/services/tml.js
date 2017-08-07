@@ -48,11 +48,11 @@ export default Ember.Service.extend({
     /* eslint-disable */
     let tml     = FastBoot.require('tml-server');
     /* eslint-enable */
-    let cookie  = this.get(`fastBoot.request.cookies.trex_${config.key}`);
+    let cookie  = this.get(`fastBoot.request.cookies.trex_${config.key}`) || '';
     let server  = config.server || {};
     let app     = new tml.Application({ key: config.key });
     
-    cookie = tml.utils ? tml.utils.decode(cookie) : {};
+    cookie = tml.utils ? (tml.utils.decode(cookie)||{}) : {};
 
     let locale     = (server.locale || config.locale || cookie.locale);
     let translator = (server.translator || cookie.translator || cookie.translator);
