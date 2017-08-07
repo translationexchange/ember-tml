@@ -41,8 +41,24 @@ module.exports = function(environment) {
 
 ## Usage
 
-The Ember TML Addon provides a few helpers and a service:
+### Initializing the SDK
 
+To start using tml in your templates you will need to initialize the SDK. We suggest doing it in the `beforeModel` hook of your application route.
+
+This will retrieve any translations from either your cache or the CDN before rendering any templates.
+
+````javascript
+// app/routes/application.js
+export default Ember.Route.extend({
+  beforeModel(){
+    return this.get('tml').initialize();
+  }
+});
+````
+
+### Helpers
+
+The Ember TML Addon provides a few helpers and a service:
 
 #### {{tr}} Helper
 `tr` is the basic translate function. It takes 3 parameters:
