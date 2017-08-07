@@ -1,22 +1,24 @@
 import Ember from 'ember';
 
-const SafeString = Ember.String.htmlSafe || Ember.Handlebars.SafeString;
+const {inject} = Ember
 
-export function trl(params, hash={}) {
-  let label       = params[0];
-  let description = params[1] || "";
-  let opts        = hash.options || {}
-
-  delete hash.options;
-
-  if(!label) return;
+export default Ember.Helper.extend({
   
-  if( window.tml && window.tml.translateLabel ) {
-    return new SafeString(window.tml.translateLabel(label, description, hash, opts));  
-  } else {
+  tml: inject.service('tml'),
+
+  compute(params, data={}) {
+
+    let label       = params[0];
+    let description = params[1] || "";
+    let opts        = data.options || {}
+
+    delete data.options;
+
+    if(!label) return;
+    
+    if(this.get('tml.app')) {
+      return Ember.String.htmlSafe(this.get('tml').translateLabel(label, description, data, opts));  
+    }
     return label;
   }
-}
-
-
-export default Ember.Helper.helper(trl);
+});

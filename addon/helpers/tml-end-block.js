@@ -1,10 +1,12 @@
 import Ember from 'ember';
 
-export function tmlEndBlock() {
-  if( window.tml && window.tml.endBlock ) {
-    window.tml.endBlock();
-  }
-  return;
-}
+const {inject} = Ember
 
-export default Ember.Helper.helper(tmlEndBlock);
+export default Ember.Helper.extend({
+  
+  tml: inject.service('tml'),
+
+  compute() {
+    this.get('tml').endBlock();
+  }
+});

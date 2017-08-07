@@ -1,10 +1,12 @@
 import Ember from 'ember';
 
-export function tmlBeginBlock(params, hash) {
-  if( window.tml && window.tml.beginBlock ) {
-    window.tml.beginBlock(hash);
-  }
-  return;
-}
+const {inject} = Ember
 
-export default Ember.Helper.helper(tmlBeginBlock);
+export default Ember.Helper.extend({
+  
+  tml: inject.service('tml'),
+
+  compute(params, data={}) {
+    this.get('tml').beginBlock(data);
+  }
+});

@@ -1,18 +1,25 @@
+import Ember from 'ember';
 
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
 let data;
 
+//Stub tml service
+const tmlStub = Ember.Service.extend({
+  app: true,
+  translate(label, description, params, options) {
+    data = {label, description, params, options}
+  }
+});
+
+
 moduleForComponent('tr', 'helper:tr', {
   integration: true,
+
   beforeEach(){
-    window.tml = {
-      getApplication() { return true },
-      translate(label, description, params, options) {
-        data = {label, description, params, options}
-      }
-    }    
+    this.register('service:tml', tmlStub);
+    this.inject.service('tml', { as: 'tml' });
   }
 });
 

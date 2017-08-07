@@ -1,5 +1,6 @@
 import { moduleFor, test } from 'ember-qunit';
 
+let didInit = false;
 let appLanguage = '';
 let trData;
 let trlData;
@@ -8,30 +9,36 @@ let trMode = false;
 moduleFor('service:tml', 'Unit | Service | tml', {
   beforeEach(){
     window.tml = {
-      getApplication() {
-        return { 
-          id: 'app1',
-          languages : [
-            {locale:'en'},
-            {locale:'ru'}
-          ],
-          isInlineModeEnabled() { return true },
-          changeLanguage(locale){ appLanguage = locale }
-        }
+      app: {
+        id: 'app1',
+        languages : [
+          {locale:'en'},
+          {locale:'ru'}
+        ],
+        current_source: {name: 'source1'},
+        current_translator: {id: 'translator1'},
+        isInlineModeEnabled()   { return true },
+        changeLanguage(locale)  { appLanguage = locale },
+        getCurrentLanguage()    { 
+          return {
+            id: 'language1',
+            translate(label, description, params, options) {
+              trData = {label, description, params, options}
+            },
+            translateLabel(label, description, params, options) {
+              trlData = {label,description,params,options}
+            }
+          } 
+        },
       },
-      getCurrentSource()      { return {name: 'source1'} },
-      getCurrentTranslator()  { return {id: 'translator1'} },
-      getCurrentLanguage()    { return {id: 'language1'} },
-      translate(label, description, params, options) {
-        trData = {label, description, params, options}
-      },
-      translateLabel(label, description, params, options) {
-        trlData = {label,description,params,options}
-      }
+      init() { didInit = true }
     }
     window.Trex = {
       toggleTranslationMode() { trMode = true; }
     }
+
+    let service = this.subject();
+    service.set('tml', window.tml);
   }
 });
 
@@ -40,9 +47,15 @@ test('it exists', function(assert) {
   assert.ok(service);
 });
 
+test('it ran init', function(assert) {
+  let service = this.subject();
+  service.initialize({ key: 123 });
+  assert.equal(didInit, true);
+});
+
 test('it gets current tml application', function(assert) {
   let service = this.subject();
-  let app = service.get('currentApplication');
+  let app = service.get('app');
   assert.equal(app.id, 'app1');
 });
 
